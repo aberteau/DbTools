@@ -27,7 +27,7 @@ namespace DbTools.DbStructure.Helpers
                 column.IsPrimaryKey = tablePkColumns.Any(c => c.ColumnName.Equals(tableColumn.ColumnName));
 
                 FkRefColumn fkRefColumn = fkRefColumnList.FirstOrDefault(c => c.ColumnName.Equals(tableColumn.ColumnName));
-                column.FkReferencedColumnIdentifier = IdentifierHelper.GetFkReferencedColumnIdentifier(fkRefColumn);
+                column.FkRefColumnIdentifier = IdentifierHelper.GetFkReferencedColumnIdentifier(fkRefColumn);
 
                 columnList.Add(column);
             }

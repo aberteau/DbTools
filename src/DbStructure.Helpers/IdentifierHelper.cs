@@ -4,32 +4,32 @@ namespace DbTools.DbStructure.Helpers
 {
     public class IdentifierHelper
     {
-        public static TableIdentifier GetTableIdentifier(InformationSchema.Data.Table tableRow)
+        public static TableIdentifier GetTableIdentifier(InformationSchema.Data.Table table)
         {
             TableIdentifier tableIdentifier = new TableIdentifier();
-            tableIdentifier.Catalog = tableRow.Catalog;
-            tableIdentifier.Schema = tableRow.Schema;
-            tableIdentifier.Name = tableRow.Name;
+            tableIdentifier.Catalog = table.Catalog;
+            tableIdentifier.Schema = table.Schema;
+            tableIdentifier.Name = table.Name;
             return tableIdentifier;
         }
 
-        public static ColumnIdentifier GetFkReferencedColumnIdentifier(InformationSchema.Data.FkRefColumn fkColumnDto)
+        public static ColumnIdentifier GetFkReferencedColumnIdentifier(InformationSchema.Data.FkRefColumn fkRefColumn)
         {
-            if (fkColumnDto == null)
+            if (fkRefColumn == null)
                 return null;
 
             ColumnIdentifier columnIdentifier = new ColumnIdentifier();
-            columnIdentifier.TableIdentifier = GetTableIdentifier(fkColumnDto);
-            columnIdentifier.ColumnName = fkColumnDto.ReferencedColumnName;
+            columnIdentifier.TableIdentifier = GetTableIdentifier(fkRefColumn);
+            columnIdentifier.ColumnName = fkRefColumn.ReferencedColumnName;
             return columnIdentifier;
         }
 
-        private static TableIdentifier GetTableIdentifier(InformationSchema.Data.FkRefColumn fkColumnDto)
+        private static TableIdentifier GetTableIdentifier(InformationSchema.Data.FkRefColumn fkRefColumn)
         {
             TableIdentifier tableIdentifier = new TableIdentifier();
-            tableIdentifier.Catalog = fkColumnDto.ReferencedTableCatalog;
-            tableIdentifier.Schema = fkColumnDto.ReferencedTableSchema;
-            tableIdentifier.Name = fkColumnDto.ReferencedTableName;
+            tableIdentifier.Catalog = fkRefColumn.ReferencedTableCatalog;
+            tableIdentifier.Schema = fkRefColumn.ReferencedTableSchema;
+            tableIdentifier.Name = fkRefColumn.ReferencedTableName;
             return tableIdentifier;
         }
     }
