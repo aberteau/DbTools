@@ -6,4 +6,16 @@
     <RootNamespace>DbTools.DbStructure.Services.MySql</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="8.0.21" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core.MySql\Core.MySql.csproj" />
+    <ProjectReference Include="..\Core\Core.csproj" />
+    <ProjectReference Include="..\DbStructure.Data\DbStructure.Data.csproj" />
+    <ProjectReference Include="..\DbStructure.Helpers\DbStructure.Helpers.csproj" />
+    <ProjectReference Include="..\InformationSchema.Helpers\InformationSchema.Helpers.csproj" />
+  </ItemGroup>
+
 </Project>
