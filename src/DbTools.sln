@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbStructure.ExportConsoleAp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbStructure.Helpers", "DbStructure.Helpers\DbStructure.Helpers.csproj", "{3FB6A68F-72A7-4F42-BD4F-58B9399690A9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.MySql", "Core.MySql\Core.MySql.csproj", "{A0FBBB34-18AB-4AC2-B5C4-B271B1C722A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{3FB6A68F-72A7-4F42-BD4F-58B9399690A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3FB6A68F-72A7-4F42-BD4F-58B9399690A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3FB6A68F-72A7-4F42-BD4F-58B9399690A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0FBBB34-18AB-4AC2-B5C4-B271B1C722A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0FBBB34-18AB-4AC2-B5C4-B271B1C722A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0FBBB34-18AB-4AC2-B5C4-B271B1C722A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0FBBB34-18AB-4AC2-B5C4-B271B1C722A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
