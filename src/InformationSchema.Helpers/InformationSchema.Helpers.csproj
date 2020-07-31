@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>DbTools.InformationSchema.Helpers</AssemblyName>
+    <RootNamespace>DbTools.InformationSchema.Helpers</RootNamespace>
+  </PropertyGroup>
+
+</Project>
