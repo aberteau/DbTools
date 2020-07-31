@@ -1,6 +1,8 @@
 ﻿namespace DbTools.InformationSchema.Data
 {
-    public class Class1
+    public enum TableType
     {
+        BaseTable,
+        View
     }
 }
