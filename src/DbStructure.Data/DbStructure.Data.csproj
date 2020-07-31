@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>DbTools.DbStructure.Data</AssemblyName>
+    <RootNamespace>DbTools.DbStructure.Data</RootNamespace>
+  </PropertyGroup>
+
+</Project>
