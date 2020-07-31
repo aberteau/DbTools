@@ -6,4 +6,8 @@
     <RootNamespace>DbTools.InformationSchema.Helpers</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\InformationSchema.Data\InformationSchema.Data.csproj" />
+  </ItemGroup>
+
 </Project>
