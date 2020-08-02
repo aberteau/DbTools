@@ -14,9 +14,25 @@ Some tools around Databases (Schema Export, ...)
 |InformationSchema.Helpers|Some helpers around InformationSchema.Data classes |.Net Standard 2.0
 
 ### Applications
-|Name|Description|Type|TargetFramework
-|------|---|---|---|
-|DbStructure.ExportConsoleApp|Tools |Console Application|.Net Core
+#### DbStructure.ExportConsoleApp
+.Net Core 3.1 Console Application
+
+Export DB Structure (using DbStructure.Data) to XML or JSON
+
+#### Usage
+##### Arguments
+|Option|Description|Required
+|------|---|---|
+|--connectionString | MySQL DB connection string |Yes
+|--tableCatalog|Table Catalog | 
+|--tableSchema |Table Schema |
+|--outputPath| Output Path |Yes
+|--help|Display version information|
+
+##### Example
+```
+> DbTools.DbStructure.ExportConsoleApp.exe --connectionString="Host=hostname;Database=db;Username=yyy;Password=xxxx" --tableSchema="table_schema" --outputPath="C:\DbTools\Database.json"
+```
 
 ## Getting Started
 ### Prerequisites
