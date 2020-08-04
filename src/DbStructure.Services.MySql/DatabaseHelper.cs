@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using DbTools.DbStructure.Data;
 using DbTools.DbStructure.Helpers;
 using MySql.Data.MySqlClient;
 
@@ -38,12 +40,7 @@ namespace DbTools.DbStructure.Services.MySql
             IEnumerable<InformationSchema.Data.Column> columns = InformationSchemaDao.GetColumns(connection, tableCatalog, tableSchema);
             IEnumerable<InformationSchema.Data.PkColumn> pkColumns = InformationSchemaDao.GetPkColumns(connection, tableCatalog, tableSchema);
 
-            IList<Data.Table> rTables = new List<Data.Table>();
-            foreach (InformationSchema.Data.Table table in tables)
-            {
-                Data.Table rTable = GetTable(connection, columns, pkColumns, table);
-                rTables.Add(rTable);
-            }
+            IEnumerable<Table> rTables = tables.Select(table => GetTable(connection, columns, pkColumns, table)).ToList();
             return rTables;
         }
     }
