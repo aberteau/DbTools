@@ -6,4 +6,8 @@
     <RootNamespace>DbTools.DbStructure.Services.SqlServer</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.0" />
+  </ItemGroup>
+
 </Project>
