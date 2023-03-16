@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj" />
     <ProjectReference Include="..\DbStructure.Data\DbStructure.Data.csproj" />
     <ProjectReference Include="..\InformationSchema.Data\InformationSchema.Data.csproj" />
   </ItemGroup>
