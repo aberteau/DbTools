@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>DbTools.DbStructure.Services.SqlServer</AssemblyName>
+    <RootNamespace>DbTools.DbStructure.Services.SqlServer</RootNamespace>
+  </PropertyGroup>
+
+</Project>
