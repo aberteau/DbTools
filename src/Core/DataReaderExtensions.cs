@@ -6,7 +6,7 @@ namespace DbTools.Core
 {
     public static class DataReaderExtensions
     {
-        public static IEnumerable<T> ReadAll<T>(this IDataReader reader, Func<IDataReader, T> map)
+        public static IEnumerable<T> ReadAll<T>(this IDataReader reader, Func<IDataRecord, T> map)
         {
             IList<T> rows = new List<T>();
             while (reader.Read())

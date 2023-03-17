@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using DbTools.Core;
@@ -62,11 +63,11 @@ namespace DbTools.DbStructure.Services.MySql
             if (!isTableTypeNull)
                 command.Parameters.AddWithValue("@tableType", TableTypeHelper.GetTableTypeStr(tableType));
 
-            IEnumerable<Table> tables = Core.MySql.MySqlCommandHelper.GetRows(command, r => ToTable(r));
+            IEnumerable<Table> tables = command.ExecuteQuery(r => ToTable(r));
             return tables;
         }
 
-        private static Table ToTable(MySqlDataReader reader)
+        private static Table ToTable(IDataRecord reader)
         {
             Table table = new Table();
             table.Catalog = reader.GetString("table_catalog");
@@ -120,11 +121,11 @@ namespace DbTools.DbStructure.Services.MySql
             if (!isTableSchemaNullOrWhiteSpace)
                 command.Parameters.AddWithValue("@tableSchema", tableSchema);
 
-            IEnumerable<Column> columns = Core.MySql.MySqlCommandHelper.GetRows(command, r => ToColumn(r));
+            IEnumerable<Column> columns = command.ExecuteQuery(r => ToColumn(r));
             return columns;
         }
 
-        private static Column ToColumn(MySqlDataReader reader)
+        private static Column ToColumn(IDataRecord reader)
         {
             Column column = new Column();
             column.TableCatalog = reader.GetString("table_catalog");
@@ -182,11 +183,11 @@ namespace DbTools.DbStructure.Services.MySql
             if (!isTableSchemaNullOrWhiteSpace)
                 command.Parameters.AddWithValue("@tableSchema", tableSchema);
 
-            IEnumerable<PkColumn> pkColumns = Core.MySql.MySqlCommandHelper.GetRows(command, r => ToPkColumn(r));
+            IEnumerable<PkColumn> pkColumns = command.ExecuteQuery(r => ToPkColumn(r));
             return pkColumns;
         }
 
-        private static PkColumn ToPkColumn(MySqlDataReader reader)
+        private static PkColumn ToPkColumn(IDataRecord reader)
         {
             PkColumn pkColumn = new PkColumn();
             pkColumn.TableCatalog = reader.GetString("table_catalog");
@@ -245,11 +246,11 @@ namespace DbTools.DbStructure.Services.MySql
             if (!isTableNameNullOrWhiteSpace)
                 command.Parameters.AddWithValue("@tableName", tableName);
 
-            IEnumerable<FkRefColumn> fkRefColumns = Core.MySql.MySqlCommandHelper.GetRows(command, r => ToFkRefColumn(r));
+            IEnumerable<FkRefColumn> fkRefColumns = command.ExecuteQuery(r => ToFkRefColumn(r));
             return fkRefColumns;
         }
 
-        private static FkRefColumn ToFkRefColumn(MySqlDataReader reader)
+        private static FkRefColumn ToFkRefColumn(IDataRecord reader)
         {
             FkRefColumn fkRefColumn = new FkRefColumn();
             string tableCatalog = reader.GetString("table_catalog");

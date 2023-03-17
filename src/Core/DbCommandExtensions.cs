@@ -6,7 +6,7 @@ namespace DbTools.Core
 {
     public static class DbCommandExtensions
     {
-        public static IEnumerable<T> GetAll<T>(this IDbCommand command, Func<IDataReader, T> map)
+        public static IEnumerable<T> ExecuteQuery<T>(this IDbCommand command, Func<IDataRecord, T> map)
         {
             using (IDataReader reader = command.ExecuteReader())
             {
