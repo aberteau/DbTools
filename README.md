@@ -6,7 +6,6 @@ Some tools around Databases (Schema Export, ...)
 |Name|Description|TargetFramework
 |------|---|---|
 |Core|- |.Net Standard 2.0
-|Core.MySql|- |.Net Standard 2.0
 |DbStructure.Data|Classes representing Database objects (Table, Column) |.Net Standard 2.0
 |DbStructure.Helpers|Some helpers around DbStructure.Data classes  |.Net Standard 2.0
 |DbStructure.Services.MySql|Services providing Database objects for MySQL|.Net Standard 2.0
