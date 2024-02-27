@@ -5,6 +5,7 @@
     <AssemblyName>DbTools.DbStructure.Data</AssemblyName>
     <RootNamespace>DbTools.DbStructure.Data</RootNamespace>
     <Authors>Amael BERTEAU</Authors>
+    <Version>2.0.0</Version>
     <Copyright>Copyright 2020 (c) Amael BERTEAU. All rights reserved.</Copyright>
     <Copyright>MIT</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
