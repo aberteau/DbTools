@@ -7,12 +7,10 @@ namespace DbTools.DbStructure.Helpers
 {
     public class ColumnHelper
     {
-        public static IEnumerable<Data.Column> GetColumns(IEnumerable<Column> columns, IEnumerable<PkColumn> pkColumns, IEnumerable<FkRefColumn> fkRefColumns, Table table)
+        public static IEnumerable<Data.Column> GetColumns(IEnumerable<Column> columns, IEnumerable<PkColumn> pkColumns, Table table)
         {
             IEnumerable<Column> tableColumns = columns.WhereBelongsTo(table);
             IEnumerable<PkColumn> tablePkColumns = pkColumns.WhereBelongsTo(table).ToList();
-
-            IList<FkRefColumn> fkRefColumnList = fkRefColumns.ToList();
 
             IList<Data.Column> columnList = new List<Data.Column>();
 
@@ -25,9 +23,6 @@ namespace DbTools.DbStructure.Helpers
                 column.IsNullable = tableColumn.IsNullable.Equals("YES");
 
                 column.IsPrimaryKey = tablePkColumns.Any(c => c.ColumnName.Equals(tableColumn.ColumnName));
-
-                FkRefColumn fkRefColumn = fkRefColumnList.FirstOrDefault(c => c.ColumnName.Equals(tableColumn.ColumnName));
-                column.FkRefColumnIdentifier = IdentifierHelper.GetFkReferencedColumnIdentifier(fkRefColumn);
 
                 columnList.Add(column);
             }

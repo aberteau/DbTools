@@ -17,9 +17,6 @@ namespace DbTools.DbStructure.Data
         [JsonProperty(PropertyName = "isPrimaryKey")]
         public bool IsPrimaryKey { get; set; }
 
-        [JsonProperty(PropertyName = "fkRefColumnIdentifier")]
-        public ColumnIdentifier FkRefColumnIdentifier { get; set; }
-
         [JsonProperty(PropertyName = "characterMaximumLength")]
         public Nullable<Int64> CharacterMaximumLength { get; set; }
     }

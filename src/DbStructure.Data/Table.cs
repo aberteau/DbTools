@@ -10,5 +10,8 @@ namespace DbTools.DbStructure.Data
 
         [JsonProperty(PropertyName = "columns")]
         public IEnumerable<Column> Columns { get; set; }
+
+        [JsonProperty(PropertyName = "foreignKeyConstraints")]
+        public IEnumerable<ForeignKeyConstraint> ForeignKeyConstraints { get; set; }
     }
 }
