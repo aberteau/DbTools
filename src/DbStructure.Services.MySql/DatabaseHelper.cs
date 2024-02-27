@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using DbTools.DbStructure.Data;
 using DbTools.DbStructure.Helpers;
 using MySql.Data.MySqlClient;
 
@@ -30,7 +29,8 @@ namespace DbTools.DbStructure.Services.MySql
             IEnumerable<InformationSchema.Data.FkRefColumn> fkRefColumns = InformationSchemaDao.GetFkColumns(connection, table.Schema, table.Name);
             Data.TableIdentifier tableIdentifier = IdentifierHelper.GetTableIdentifier(table);
             Data.Table rTables = new Data.Table { Identifier = tableIdentifier };
-            rTables.Columns = ColumnHelper.GetColumns(columns, pkColumns, fkRefColumns, table);
+            rTables.Columns = ColumnHelper.GetColumns(columns, pkColumns, table);
+            rTables.ForeignKeyConstraints = ForeignKeyConstraintHelper.GetForeignKeyConstraints(fkRefColumns);
             return rTables;
         }
 
@@ -40,7 +40,7 @@ namespace DbTools.DbStructure.Services.MySql
             IEnumerable<InformationSchema.Data.Column> columns = InformationSchemaDao.GetColumns(connection, tableCatalog, tableSchema);
             IEnumerable<InformationSchema.Data.PkColumn> pkColumns = InformationSchemaDao.GetPkColumns(connection, tableCatalog, tableSchema);
 
-            IEnumerable<Table> rTables = tables.Select(table => GetTable(connection, columns, pkColumns, table)).ToList();
+            IEnumerable<Data.Table> rTables = tables.Select(table => GetTable(connection, columns, pkColumns, table)).ToList();
             return rTables;
         }
     }
